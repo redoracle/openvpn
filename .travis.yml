@@ -3,7 +3,7 @@ services:
   - docker
 env:
   global:
-    - IMAGE_NAME=redoracle/OpenVpn
+    - IMAGE_NAME=redoracle/openvpn
 
 before_script:
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
