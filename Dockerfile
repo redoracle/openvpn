@@ -11,24 +11,22 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-url=$VCS_URL \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.version=$VERSION \
-      org.label-schema.name='Py3Alpine' \
+      org.label-schema.name='OpenVpn' \
       org.label-schema.description='Alpine Linux + OpenVpn.latest docker image' \
       org.label-schema.usage='https://www.redoracle.com' \
-      org.label-schema.url='https://alpinelinux.org/' \
+      org.label-schema.url='https://alpinelinux.org' \
       org.label-schema.vendor='Alpine' \
       org.label-schema.schema-version='1.0' \
       org.label-schema.docker.cmd='docker run --rm redoracle/OpenVpn:latest' \
-      org.label-schema.docker.cmd.devel='docker run -i --rm --name OpenVpn -t alpine:latest' \
+      org.label-schema.docker.cmd.devel='docker run -i --rm --name OpenVpn -t redoracle/OpenVpn:latest' \
       org.label-schema.docker.debug='docker logs $CONTAINER' \
       io.github.offensive-security.docker.dockerfile="Dockerfile" \
       io.github.offensive-security.license="GPLv3" \
       MAINTAINER="RedOracle <info@redoracle.com>"
       
-
-# Testing: pamtester
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories \
       && apk add --update openvpn iptables bash easy-rsa openvpn-auth-pam google-authenticator pamtester \
-      && ln -s /usr/share/easy-rsa/easyrsa /usr/local/bin && \
+      && ln -s /usr/share/easy-rsa/easyrsa /usr/local/bin \
       && rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 
 # Needed by scripts
