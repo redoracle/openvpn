@@ -21,7 +21,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.docker.cmd.devel='docker run -i --rm --name OpenVpn -t redoracle/openvpn:latest' \
       org.label-schema.docker.debug='docker logs $CONTAINER' \
       io.github.offensive-security.docker.dockerfile="Dockerfile" \
-      io.github.offensive-security.license="GPLv3" \
+      io.github.offensive-security.license="MIT" \
       MAINTAINER="RedOracle <info@redoracle.com>"
       
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories \
