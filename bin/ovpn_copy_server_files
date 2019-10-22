@@ -2,11 +2,10 @@
 
 set -e
 
-if [ -z "$OPENVPN" ]; then
-    export OPENVPN="$PWD"
-fi
-if ! source "/etc/openvpn/ovpn_env.sh"; then
-    echo "Could not source /etc/openvpn/ovpn_env.sh."
+export OPENVPN="/etc/openvpn"
+
+if ! source "$OPENVPN/ovpn_env.sh"; then
+    echo "Could not source $OPENVPN/ovpn_env.sh."
     exit 1
 fi
 
