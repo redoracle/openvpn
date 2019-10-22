@@ -139,7 +139,7 @@ if [ -z "${OPENVPN:-}" ]; then
   export OPENVPN="$PWD"
 fi
 if [ -z "${EASYRSA_PKI:-}" ]; then
-    export EASYRSA_PKI="$OPENVPN/pki"
+    export EASYRSA_PKI="/etc/openvpn/pki"
 fi
 
 OVPN_AUTH=''
@@ -334,7 +334,7 @@ proto $OVPN_PROTO
 # Rely on Docker to do port mapping, internally always 1194
 port 1194
 dev $OVPN_DEVICE$OVPN_DEVICEN
-status /tmp/openvpn-status.log
+status /etc/openvpn/openvpn-status.log
 
 user nobody
 group nogroup
