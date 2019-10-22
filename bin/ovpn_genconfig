@@ -303,7 +303,7 @@ fi
   echo "declare -x $var"  >> "$OVPN_ENV"
 done
 
-conf=${OPENVPN:-}/openvpn.conf
+conf="/etc/openvpn/openvpn.conf"
 if [ -f "$conf" ]; then
     bak=$conf.$(date +%s).bak
     echo "Backing up $conf -> $bak"
