@@ -11,6 +11,7 @@ fi
 set -e
 
 source "/etc/openvpn/ovpn_env.sh"
+export EASYRSA_PKI="/etc/openvpn/pki"
 
 # Specify "nopass" as arg[2] to make the CA insecure (not recommended!)
 nopass=$1
