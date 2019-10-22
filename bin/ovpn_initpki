@@ -16,6 +16,8 @@ export EASYRSA_PKI="/etc/openvpn/pki"
 # Specify "nopass" as arg[2] to make the CA insecure (not recommended!)
 nopass=$1
 
+cd /etc/openvpn
+
 # Provides a sufficient warning before erasing pre-existing files
 easyrsa init-pki
 
