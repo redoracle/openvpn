@@ -24,7 +24,12 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       io.github.offensive-security.license="MIT" \
       MAINTAINER="RedOracle <info@redoracle.com>"
 
-WORKDIR /root/
+# Set environment variables.
+ENV HOME /root
+
+# Define working directory.
+WORKDIR /root
+
 
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories \
       && apk add --update openvpn iptables bash easy-rsa openvpn-auth-pam google-authenticator pamtester \
@@ -40,13 +45,13 @@ EASYRSA_VARS_FILE $OPENVPN/vars
 
 VOLUME ["/etc/openvpn"]
 
-# Internally uses port 1194/udp, remap using `docker run -p 443:1194/tcp`
-EXPOSE 1194/udp
-
-CMD ["ovpn_run"]
-
 ADD ./bin /usr/local/bin
 RUN chmod a+x /usr/local/bin/*
 
 # Add support for OTP authentication using a PAM module
 ADD ./otp/openvpn /etc/pam.d/
+
+CMD ["ovpn_run"]
+
+# Internally uses port 1194/udp, remap using `docker run -p 443:1194/tcp`
+EXPOSE 1194/udp
