@@ -30,7 +30,6 @@ ENV HOME /root
 # Define working directory.
 WORKDIR /root
 
-
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories \
       && apk add --update openvpn iptables bash easy-rsa openvpn-auth-pam google-authenticator pamtester \
       && ln -s /usr/share/easy-rsa/easyrsa /usr/local/bin \
