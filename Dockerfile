@@ -52,7 +52,7 @@ RUN chmod a+x /usr/local/bin/*
 # Add support for OTP authentication using a PAM module
 ADD ./otp/openvpn /etc/pam.d/
 
-#CMD ["ovpn_run"]
+CMD ["ovpn_run"]
 
 # Internally uses port 1194/udp, remap using `docker run -p 443:1194/tcp`
 EXPOSE 1194/udp
