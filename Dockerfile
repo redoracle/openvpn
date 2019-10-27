@@ -1,7 +1,7 @@
 FROM alpine:latest
 MAINTAINER RedOracle
 
-# Metadata parameters
+# Metadata parameters 
 ARG BUILD_DATE
 ARG VERSION
 ARG VCS_URL
